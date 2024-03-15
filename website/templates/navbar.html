@@ -6,10 +6,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-                 
+          {% if user.is_authenticated %}                 
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            <a class="nav-link " href="{% url 'logout' %}" aria-disabled="true">Logout</a>
           </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'register' %}" aria-disabled="true">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'home' %}" aria-disabled="true">Login</a>
+          </li>
+          {% endif %}
         </ul>
       </div>  
     </div>
